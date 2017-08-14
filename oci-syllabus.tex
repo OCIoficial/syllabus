@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\newcommand{\basic}{$\heartsuit$}
+\newcommand{\advanced}{$\ominus$}
+\newcommand{\ultra}{$\otimes$}
+\usepackage{theorem}
+\usepackage{xspace}
+\usepackage{amsmath}
+\newtheorem{ejemplo}{Ejemplo}[section]
+\newcommand{\java}{Java\xspace}
+\newcommand{\cpp}{C\texttt{++}\xspace}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\version}{Version 2017}
+
+\pagestyle{myheadings}
+\textwidth 126.34 mm
+\textheight 189.55 mm
+\parindent 20 pt
+\parskip 0 pt
+\markboth{\sc OCI Syllabus\version}{\sc OCI Syllabus - \version}
+
+
+\begin{document}
+\title{Syllabus para las Olimpiada Chilena de Informática}
+\date{}
+\maketitle
+
+\section{Versión y estatus de este documento}
+Este documento es la versión oficial del Syllabus para la \textbf{OCI 2017}.
+El Syllabus es un documento oficial relacionado a la OCI.
+Cada año el Comité Científico de la OCI publicará una versión actualizada del Syllabus.
+
+\section{Autores e información de contacto}
+Una primera versión de este documento fue publicado para la OCI 2013 a cargo de
+Cristian Ruz, Pontificia Universidad Católica de Chile (cruz@ing.puc.cl) y
+Jorge Pérez, Universidad de Chile (jperez@dcc.uchile.cl).
+La versión actual del documento ha sido modificada a partir de la original por Nicolás
+Lehmann actual director del Comité Científico.
+Cualquier persona es bienvenida a realizar consultas y sugerencias sobre
+Syllabus a la dirección de correo del mantenedor actual (nlehmann@dcc.uchile.cl).
+
+\section{Introducción}\label{sec:intro}
+Este documento contiene información acerca de los conceptos mínimos (recomendados)
+para la fase regional y nacional de la Olimpiada Chilena de Informática (OCI).
+Los objetivos principales de este documento son dos:
+\begin{itemize}
+  \item Servir de guía para las distintas delegaciones que se encuentren
+    entrenando a sus alumnos para la OCI.
+  \item Servir como guía al Comité Científico para determinar que problemas son
+    adecuadas para la OCI.
+\end{itemize}
+El Syllabus pretende cumplir estos objetivos dando una categorización de tópicos
+en ciencias de la computación.
+De forma específica el Syllabus divide los tópicos en tres categorías.
+\begin{description}
+\item[\basic{} Básico]
+  \hspace{1em} \\
+  Los tópicos en esta categoría son considerados requisito mínimo.
+    Se espera que los participantes los conozcan.
+    Estos tópicos podrán aparecer en la descripción de un problema sin una
+    explicación adicional.
+    El comité científico asegurará que en cada problema al menos una subtarea podrá
+    ser resuelta usando solo tópicos dentro de esta categoría (referirse a
+    apéndice \ref{problem-description}).
+  \item[\advanced{} Avanzado]
+    \hspace{1em} \\
+    Es recomendable para los participantes conocer estos tópicos
+    pues le permitirán obtener el máximo puntaje en cada problema.
+  \item[\ultra{} Solo fase nacional]
+    \hspace{1em} \\
+    Algunos tópicos avanzados serán marcados como solo fase nacional.
+    El Comité Científico garantizará que para todos las problemas en la fase
+    regional será posible obtener puntaje máximo sin conocimiento sobre los
+    tópicos en esta categoría.
+\end{description}
+
+Cabe destacar que cada delegación regional es la responsable final de qué
+contenidos se entregan a los estudiantes de sus regiones, y puede decidir cubrir
+sólo parte de los conceptos descritos en este documento o incluir conceptos
+adicionales.
+
+Es intención del Comité Científico aumentar gradualmente la complejidad de los
+tópicos cubiertos en este documento.
+Por esta razón el Comité Científico puede cada año decidir incluir tópicos
+avanzados no cubiertos previamente o considerar como básicos tópicos
+considerados anteriormente como avanzados.
+No obstante, entendiendo la diversidad en los participantes, es también
+compromiso del Comité Científico preparar en cada competencia un conjunto de
+tareas adecuado para todos los niveles.
+Este compromiso será reflejado en la variedad de subtareas propuestas para cada
+problema (referirse a apéndice \ref{problem-description}).
+
+\section{Conceptos fundamentales de programación}
+
+\subsection{Componentes fundamentales de lenguajes de programación}
+\input{topics/prog-lang-fund}
+
+\subsection{Tipos de datos básicos y operaciones}
+\input{topics/basic-data-types}
+
+\subsection{Estructuras de datos simples}
+\input{topics/simple-data-structures}
+
+\subsection{Recursión}
+\input{topics/recursion}
+
+\section{Algoritmos y estructuras de datos}
+\subsection{Ordenación y búsqueda}
+\input{topics/sort-search}
+
+\subsection{Estructuras de datos y algoritmos provistos por la librería estándar}
+\input{topics/library-functions}
+
+\subsection{Algorítmos numéricos}
+\input{topics/numeric-algorithms}
+
+\subsection{Grafos}
+\input{topics/graphs}
+
+\newpage
+\appendix
+\section{Descripción de un problema de la OCI}
+\label{problem-description}
+\input{appendices/problem-description}
+
+\section{Operaciones de entrada y salida (IO)}
+\label{tech-IO}
+\input{appendices/io}
+
+\section{Algoritmos y estructuras de la librería estándar}
+\input{appendices/standar-library}
+
+\end{document}

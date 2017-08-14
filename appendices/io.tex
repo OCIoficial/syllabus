@@ -1,0 +1,54 @@
+Cada programa enviado como solución en la OCI es evaluado ejecutándolo con
+distintos casos de prueba.
+Un caso de prueba corresponde a una instancia del problema y esta compuesto por
+una entrada y una salida esperada.
+El programa será ejecutado una vez por cada caso de prueba entregándole a este
+la entrada a través de la entrada estándar.
+El programa deberá imprimir el resultado del problema por la salida estándar.
+La salida del programa es posteriormente comparada con la salida esperada para
+el caso de prueba.
+El comportamiento por defecto es hacer una comparación \textit{exacta} entre la
+salida del programa y la salida esperada para el caso de prueba (similar al
+resultado entregado por el comando \verb|diff| en linux).
+% TODO referencia a detalles técnicos de entrada y salida
+Por lo tanto es importante que el programa respete el formato de salida esperado
+de forma estricta, considerando mayúsculas y minúsculas, espacios y saltos de
+línea.
+La entrada de cada caso de prueba también seguirá el formato estricto
+especificado en el enunciado del problema y por lo tanto las soluciones no
+deberán preocuparse de verificarlo.
+
+La entrada y salida deber ser siempre por la salida estándar.
+A continuación se detallan las formas recomendadas de hacerlo en \java y \cpp.
+\paragraph{\cpp.} Existen dos formas de leer y escribir por la entrada y salida
+  estándar en \cpp.
+  La primera es usando las funciones \code{printf} y \code{scanf} del encabezado
+  \code{cstdio}.
+  La siguiente forma es a través de \textit{streams} usando lo objetos
+  \code{cin} y \code{cout} provistos por el encabezado \code{iostream}.
+  Ambas formas están recomendadas y su uso solo depende de preferencias personales.
+\paragraph{\java.} La forma recomendada en \java para escribir a la salida estándar es
+  utilizando las funciones \code{System.out.println} y \code{System.out.print}.
+  Puede ser de utilidad conocer también la función \code{System.out.format}.
+
+  Por otro lado la lectura de la entrada estándar es más sutil en \java que en
+  \cpp.
+  En \java puede resultar tentador utilizar la clase \code{Scanner}.
+  Sin embargo, esta forma de lectura puede resultar muy ineficiente pues no
+  utiliza un \textit{buffer}.
+  Debido a esta ineficiencia el Comité Científico no garantiza que las
+  soluciones que utilicen \code{Scanner} obtengan el mayor puntaje en problemas
+  que tengan restricciones ajustadas de tiempo.
+  No obstante, su uso queda a criterio del competidor.
+  En problemas donde el tamaño de la entrada es pequeño, utilizar \code{Scanner}
+  puede no resultar significativo en el tiempo total de ejecución.
+
+  La forma recomendada de leer en \java es utilizando el método \code{readLine}
+  de la clase \code{BufferedReader}.
+  Para complementar el uso de esta clase es recomendable utilizar la clase
+  \code{StringTokenizer} y funciones como \code{Integer.parseInt}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../oci-syllabus"
+%%% End: 
