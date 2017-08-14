@@ -2,16 +2,17 @@
 
 ## Compilar documento
 ```bash
-make
+$ make
 ```
 
 ## Publicar una nueva version
 
-1. Instalar `publish-release`
+
+1. Instalar `publish-release` si no está instalado
 ```bash
 $ npm i -g publish-release
 ```
-1. Correr script para publicar
+2. Correr script para publicar
 ```bash
 $ ./publish <tag>
 ```
