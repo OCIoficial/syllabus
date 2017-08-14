@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+TAG=$1
+
+make || exit 1
+
+publish-release --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf
+

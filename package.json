@@ -1,0 +1,19 @@
+{
+  "name": "syllabus",
+  "description": "Syllabus para la Olimpiada Chilena de Informatica",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocioficial/syllabus.git"
+  },
+  "keywords": [
+    "syllabus",
+    "oci",
+    "olimpiada",
+    "informatica"
+  ],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ocioficial/syllabus/issues"
+  },
+  "homepage": "https://github.com/ocioficial/syllabus#readme"
+}
