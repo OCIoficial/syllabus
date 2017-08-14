@@ -2,7 +2,7 @@
 
 TAG=$1
 
-make || exit 1
+make force || exit 1
 
-publish-release --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf
+publish-release --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf --template RELEASE.md
 
