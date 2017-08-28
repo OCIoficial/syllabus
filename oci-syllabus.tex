@@ -2,6 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\usepackage[activeacute,spanish]{babel}
+\usepackage{times}
+
 \newcommand{\basic}{$\heartsuit$}
 \newcommand{\advanced}{$\ominus$}
 \newcommand{\ultra}{$\otimes$}
@@ -13,7 +16,7 @@
 \newcommand{\cpp}{C\texttt{++}\xspace}
 \newcommand{\code}[1]{\texttt{#1}}
 
-\newcommand{\version}{Version 2017}
+\newcommand{\version}{Versión 2017}
 
 \pagestyle{myheadings}
 \textwidth 126.34 mm
@@ -22,9 +25,15 @@
 \parskip 0 pt
 \markboth{\sc OCI Syllabus\version}{\sc OCI Syllabus - \version}
 
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
 
 \begin{document}
-\title{Syllabus para la Olimpiada Chilena de Informática}
+\title{
+    \includegraphics[scale=0.2]{OCIlogo.eps}\\
+    \vskip 20pt
+    Syllabus para la Olimpiada Chilena de Informática}
 \date{}
 \maketitle
 
@@ -35,12 +44,12 @@ Cada año el Comité Científico de la OCI publicará una versión actualizada d
 
 \section{Autores e información de contacto}
 Una primera versión de este documento fue publicado para la OCI 2013 a cargo de
-Cristian Ruz, Pontificia Universidad Católica de Chile (cruz@ing.puc.cl) y
-Jorge Pérez, Universidad de Chile (jperez@dcc.uchile.cl).
-La versión actual del documento ha sido modificada a partir de la original por Nicolás
-Lehmann actual director del Comité Científico.
+Cristian Ruz, Pontificia Universidad Católica de Chile (\href{mailto:cruz@ing.puc.cl}{\nolinkurl{cruz@ing.puc.cl}}) y
+Jorge Pérez, Universidad de Chile (\href{mailto:jperez@dcc.uchile.cl}{\nolinkurl{jperez@dcc.uchile.cl}}).
+La versión actual del documento ha sido modificada a partir de la original por Nicolás Lehmann, actual director del Comité Científico.\\
+
 Cualquier persona es bienvenida a realizar consultas y sugerencias sobre el
-Syllabus a la dirección de correo del mantenedor actual (nlehmann@dcc.uchile.cl).
+Syllabus a la dirección de correo del mantenedor actual (\href{mailto:nlehmann@dcc.uchile.cl}{\nolinkurl{nlehmann@dcc.uchile.cl}}).
 
 \section{Introducción}\label{sec:intro}
 Este documento contiene información acerca de los conceptos mínimos (recomendados)
@@ -49,12 +58,12 @@ Los objetivos principales de este documento son dos:
 \begin{itemize}
   \item Servir de guía para las distintas delegaciones que se encuentren
     entrenando a sus alumnos para la OCI.
-  \item Servir como guía al Comité Científico para determinar que problemas son
-    adecuadas para la OCI.
+  \item Servir como guía al Comité Científico para determinar qué problemas son
+    adecuados para la OCI.
 \end{itemize}
 El Syllabus pretende cumplir estos objetivos dando una categorización de tópicos
 en ciencias de la computación.
-De forma específica el Syllabus divide los tópicos en tres categorías.
+De forma específica, el Syllabus divide los tópicos en tres categorías.
 \begin{description}
 \item[\basic{} Básico]
   \hspace{1em} \\
@@ -67,7 +76,7 @@ De forma específica el Syllabus divide los tópicos en tres categorías.
     apéndice \ref{problem-description}).
   \item[\advanced{} Avanzado]
     \hspace{1em} \\
-    Es recomendable para los participantes conocer estos tópicos pues le
+    Es recomendable para los participantes conocer estos tópicos pues les
     permitirá obtener el máximo puntaje en cada problema.
     Algunos tópicos en esta categoría no serán evaluados de forma explícita,
     sino más bien son una recomendación para ayudar a abordar los problemas (ej.
@@ -75,25 +84,25 @@ De forma específica el Syllabus divide los tópicos en tres categorías.
   \item[\ultra{} Solo fase nacional]
     \hspace{1em} \\
     Algunos tópicos avanzados serán marcados como \textit{solo fase nacional}.
-    El Comité Científico garantizará que para todos las problemas en la fase
+    El Comité Científico garantizará que para todos los problemas en la fase
     regional será posible obtener puntaje máximo sin conocimiento sobre los
     tópicos en esta categoría.
 \end{description}
 
 Cabe destacar que cada delegación regional es la responsable final de qué
 contenidos se entregan a los estudiantes de sus regiones, y puede decidir cubrir
-sólo parte de los conceptos descritos en este documento o incluir conceptos
-adicionales.
+solo parte de los conceptos descritos en este documento o incluir conceptos
+adicionales.\\
 
 Es intención del Comité Científico aumentar gradualmente la complejidad de los
 tópicos cubiertos en este documento.
-Por esta razón el Comité Científico puede cada año decidir incluir tópicos
-avanzados no cubiertos previamente o considerar como básicos tópicos
-considerados anteriormente como avanzados.
-No obstante, entendiendo la diversidad en los participantes, es también
+Por esta razón, cada año el Comité Científico puede decidir incluir tópicos
+avanzados no cubiertos previamente o catalogar como básicos ciertos tópicos
+anteriormente considerados como avanzados.
+No obstante, entendiendo la diversidad de los participantes, es también
 compromiso del Comité Científico preparar en cada competencia un conjunto de
 tareas adecuado para todos los niveles.
-Este compromiso será reflejado en la variedad de subtareas propuestas para cada
+Este compromiso se verá reflejado en la variedad de subtareas propuestas para cada
 problema (referirse a apéndice \ref{problem-description}).
 
 \section{Conceptos fundamentales de programación}
@@ -121,7 +130,7 @@ problema (referirse a apéndice \ref{problem-description}).
 \subsection{Estructuras de datos y algoritmos provistos por la librería estándar}
 \input{topics/library-functions}
 
-\subsection{Algorítmos numéricos}
+\subsection{Algoritmos numéricos}
 \input{topics/numeric-algorithms}
 
 \subsection{Grafos}
@@ -139,5 +148,6 @@ problema (referirse a apéndice \ref{problem-description}).
 
 \section{Algoritmos y estructuras de la librería estándar}
 \input{appendices/standar-library}
+
 
 \end{document}

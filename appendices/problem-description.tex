@@ -6,7 +6,7 @@ competencia y el feedback que reciben los participantes.
 
 En general, todo problema de la OCI comienza con una descripción (entregando
 contexto y motivando típicamente desde una situación cercana a la realidad).
-Después de analizar el problema, el estudiante podrá entender cómo resolverla
+Después de analizar el problema, el estudiante podrá entender cómo resolverlo
 usando técnicas de programación. El siguiente ejemplo muestra un enunciado
 resumido del problema ``Palabras'' de la OCI 2013.
 
@@ -18,20 +18,20 @@ conjunto de letras dado.
 Por ejemplo, si las letras que se usan son `\$' y `\&', entonces las palabras
 distintas de largo 3 que se pueden formar son \$\$\$, \$\$\&, \$\&\$, \$\&\&,
 \&\$\$, \&\$\&, \&\&\$ y \&\&\&, que en total son 8.
-No se pide el número total, si no que basta con conocer los últimos 4 dígitos de
+No se pide el número total, sino que basta con conocer los últimos 4 dígitos de
 ese valor.
 \end{ejemplo}
 
 Luego de la descripción del problema se describen la forma en que se entregará la
 entrada/input junto con las restricciones de los valores, y la forma en que debe
 ser entregada la salida/output por parte de la solución.
-Por ejemplo, en el caso del problema ``Palabras'' descrita anteriormente, la
-entrada era un par de números enteros $N$ y $L$ donde $N$ corresponde a la
+Por ejemplo, en el caso del problema ``Palabras'' descrito anteriormente, la
+entrada era un par de números enteros $N$ y $L$, donde $N$ corresponde a la
 cantidad de letras usadas y $L$ al largo de las palabras.
 La salida debía ser un entero correspondiente a los $4$ últimos dígitos de la
 cantidad de palabras de largo $L$ que se pueden crear con $N$ letras.
-En el caso de la entrada la restricción era que $N$ podía tomar valores entre
-$1$ y $10$, y que $L$ podía tomar valores entre $1$ y $10^9-1$.
+En el caso de la entrada, la restricción era que $N$ podía tomar valores entre
+$1$ y $10$, y que $L$ podía tomar valores entre $1$ y $10^9-1$.\\
 
 Posteriormente, el enunciado del problema describe las distintas subtareas que se
 someterán a evaluación y el puntaje por completar cada una.
@@ -57,16 +57,15 @@ Subtarea 4 &20 puntos & $10^8\leq L<10^9$ \\ \hline
 \end{center}
 \end{ejemplo}\bigskip
 
-El puntaje total de un problema, sumando los puntajes de cada subtarea que lo componen
-será siempre de 100 puntos, tal como en el ejemplo anterior.
+El puntaje total de un problema, sumando los puntajes de cada subtarea que lo componen, será siempre de 100 puntos, tal como en el ejemplo anterior. En dicho ejemplo se puede notar cómo el problema va aumentando la dificultad
+para cada una de las subtareas.\\
 
 % En la mayoría de los casos el problema finalizará indicando la cantidad de
 % tiempo que se destinará
 % para la ejecución de cada caso de prueba, y un ejemplo de entrada/input y salida/output.
-En el caso del ejemplo anterior se puede notar cómo el problema va aumentando la dificultad
-para cada una de las subtareas.
+
 A continuación se hace un análisis del problema ``Palabras'' y la solución más
-simple para cada una de las posibles tareas.
+simple para cada una de las posibles tareas.\\
 
 Lo primero que se puede observar en el problema ``Palabras'' es que la cantidad
 de palabras distintas de largo $L$ que se pueden hacer con $N$ letras es
@@ -74,64 +73,61 @@ simplemente $N^L$.
 La segunda observación es que ese número podría ser muy grande dependiendo de
 los valores de $N$ y $L$ y que por lo tanto podría ser muy lento de calcular y 
 su valor podría no ser almacenable en un tipo de dato básico.
-Con esas observaciones se puede entregar las siguientes estrategias:
+Con esas observaciones se pueden utilizar las siguientes estrategias:
 
 \begin{description}
 \item[Subtarea 1]: Dado que $N$ es siempre menor o igual
 a $10$ y $L$ es menor que $4$, sabemos que $N^L$ tendrá menos de 4 dígitos.
 Luego, en este caso bastaba con entregar como salida el valor $N^L$.
-Más aún el cálculo de $N^L$ se podría hacer de forma muy simple: 
+Más aún, el cálculo de $N^L$ se podría hacer de forma muy simple: 
 dado que los valores posibles de $L$ son $1,2,3$, 
 se podría hacer una implementación en donde la salida fuera, 
 o bien $N$, o $N\times N$, o $N\times N\times N$, dependiendo del valor de $L$,
 lo que puede ser implementado incluso usando solo \texttt{if}/\texttt{else} y 
 operaciones básicas entre enteros.
 
-\item[Subtarea 2]: En este caso el valor $N^L$ podría tener más de 4 dígitos por 
-lo que sería incorrecto simplemente entregar $N^L$ como salida.
-Además, los valores de $L$ podrían ser muchos (entre $4$ y $11$)
-por lo que era necesario hacer una iteración para calcular $N^L$.
-Dado que el valor máximo para $N^L$ era $10^{11}$ este número podría ser
-almacenado en una variable y posteriormente del resultado obtener los últimos 4 dígitos.
+\item[Subtarea 2]: En este caso el valor $N^L$ podría tener más de 4 dígitos, por lo que sería incorrecto simplemente entregar $N^L$ como salida.
+Además, los valores de $L$ podrían ser muchos (entre $4$ y $11$),
+y en consecuencia, era necesario hacer una iteración para calcular $N^L$.
+Dado que el valor máximo para $N^L$ era $10^{11}$, este número podría ser
+almacenado en una variable y posteriormente obtener los últimos 4 dígitos del resultado.
 Obtener los dígitos se podía hacer dividiendo y restando, o usando el 
 operador \texttt{\%}.
 
-\item[Subtarea 3]: En este caso el valor de $N^L$ podría ser gigante (hasta $10^{10^8}$)
-por lo que es imposible calcular primero el valor ya que no es almacenable en ningún tipo
-de dato.
-La observación que se podía hacer es que como sólo se necesitaban los últimos $4$ dígitos
-entonces podríamos usar aritmética modular de manera tal de multiplicar $N$ consigo mismo
-$L$ veces usando una iteración, pero tomando el módulo (\texttt{\%}) $10000$ luego de cada multiplicación. De esta
-forma todos los números intermedios tendrían a lo mas $8$ dígitos, y cuando se terminara
-el cálculo se tendría exactamente el valor pedido.
+\item[Subtarea 3]: En este caso el valor de $N^L$ podría ser gigante (hasta $10^{10^8}$), por lo que sería imposible calcular primero el valor, ya que no es almacenable en ningún tipo de dato.
+La observación que se podía hacer es que como solo se necesitaban los últimos $4$ dígitos, entonces podríamos usar aritmética modular de manera tal de multiplicar $N$ consigo mismo $L$ veces usando una iteración, pero tomando el módulo (\texttt{\%}) $10000$ luego de cada multiplicación. De esta
+forma, todos los números intermedios tendrían a lo mas $8$ dígitos, y cuando se terminara el cálculo se tendría exactamente el valor pedido.
 
 
-\item[Subtarea 4]: Esta es la tarea más difícil.
-  En este caso el valor de $L$ puede ser tan grande
-($10^9-1$) que incluso hacer una iteración desde $1$ hasta $L$ podría necesitar
-demasiado tiempo (mayor a 1 segundo que era el tiempo máximo de ejecución).
-Una solución a este problema que obtenía todo el puntaje era notar que o bien
-$L$ o $L-1$ se podía dividir por 2 para hacer el computo más rápido de la
-siguiente forma: (1) si $L$ es par, entonces se calcular $N^{L/2}$ y luego se
+\item[Subtarea 4]: Esta es la tarea más difícil. En este caso el valor de $L$ puede ser tan grande ($10^9-1$) que incluso hacer una iteración desde $1$ hasta $L$ podría necesitar demasiado tiempo (mayor a 1 segundo, que era el tiempo máximo de ejecución).\\
+Una solución a este problema que obtenía todo el puntaje era notar que, o bien
+$L$ o $L-1$ se podía dividir por 2 para hacer el cómputo más rápido, de la
+siguiente forma: (1) si $L$ es par, entonces se calcula $N^{L/2}$ y luego se
 eleva al cuadrado, (2) si $L$ es impar, entonces se calcula $N^{(L-1)/2}$ y
 luego se eleva al cuadrado y se multiplica por $N$.
 En ambos casos se debía tomar módulo $10000$ después de cada cálculo intermedio.
 Esta solución llevaba a la mitad el tiempo necesario para calcular $N^L$.
-Otra solución general, que alcanzaba la mejor eficiencia era usar
+Otra solución general, que alcanzaba la mejor eficiencia, era usar
 \emph{exponenciación rápida}%
 \footnote{Este tópico no está incluido dentro de los tópicos para OCI 2013-2014}
 que es esencialmente la idea anterior pero dividiendo $L$ de manera recursiva.
 Esencialmente se calcula una función recursiva $\operatorname{expRap}(N,L)$ de manera tal que
-\begin{eqnarray*}
-\operatorname{expRap}(N,L) & = &\operatorname{expRap}(N,{L}/{2}) \times 
-\operatorname{expRap}(N,{L}/{2}) \text{\;\;\;\; si $L$ es par} \\
-\operatorname{expRap}(N,L) & = & N\times \operatorname{expRap}(N,{(L-1)}) \text{\;\;\;\; si $L$ es impar}
-\end{eqnarray*}
-con caso base $\operatorname{expRap}(N,L)=N$ y de manera que en cada llamada intermedia 
+
+\[   
+\operatorname{expRap}(N,L) = 
+     \begin{cases}
+       \operatorname{expRap}(N,{L}/{2}) \times 
+\operatorname{expRap}(N,{L}/{2}) &\quad\text{si $L$ es par}\\
+       N\times \operatorname{expRap}(N,{(L-1)}) &\quad\text{si $L$ es impar}\\
+     \end{cases}
+\]
+
+
+con caso base $\operatorname{expRap}(N,1)=N$ y de manera que en cada llamada intermedia 
 se tome el módulo $10000$.
 
 \end{description}
-Este problema es un problema claramente difícil para obtener el puntaje completo.
+Este es un problema claramente difícil para obtener el puntaje completo.
 Note además que cualquier solución para una de las tareas resolvía satisfactoriamente todas
 las tareas anteriores.
 
@@ -145,8 +141,7 @@ una subtarea se debe tener correctos todos los casos de prueba de la subtarea.
 El sistema de evaluación entregará al participante el detalle de todos los casos
 que fueron resueltos correctamente y aquellos en los que hubo un error, pero el
 contenido de los casos de prueba siempre permanecerá oculto.
-El puntaje final de un participante corresponde a la suma del puntaje máximo que
-haya sacado en cada problema.
+El puntaje final de un participante corresponde a la suma de los puntajes máximos que haya sacado en cada problema.
 
 %%% Local Variables: 
 %%% mode: latex
