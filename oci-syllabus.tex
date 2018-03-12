@@ -4,6 +4,7 @@
 
 \usepackage[activeacute,spanish]{babel}
 \usepackage{times}
+\usepackage{xcolor}
 
 \newcommand{\basic}{$\heartsuit$}
 \newcommand{\advanced}{$\ominus$}
@@ -17,6 +18,7 @@
 \newcommand{\code}[1]{\texttt{#1}}
 
 \newcommand{\version}{Versión 2017}
+\newcommand{\new}{\color{red}}
 
 \pagestyle{myheadings}
 \textwidth 126.34 mm
@@ -38,7 +40,7 @@
 \maketitle
 
 \section{Versión y estatus de este documento}
-Este documento es la versión oficial del Syllabus para la \textbf{OCI 2017}.
+Este documento es la versión oficial del Syllabus para la \textbf{OCI 2018}.
 El Syllabus es un documento oficial relacionado a la OCI.
 Cada año el Comité Científico de la OCI publicará una versión actualizada del Syllabus.
 
@@ -46,10 +48,14 @@ Cada año el Comité Científico de la OCI publicará una versión actualizada d
 Una primera versión de este documento fue publicado para la OCI 2013 a cargo de
 Cristian Ruz, Pontificia Universidad Católica de Chile (\href{mailto:cruz@ing.puc.cl}{\nolinkurl{cruz@ing.puc.cl}}) y
 Jorge Pérez, Universidad de Chile (\href{mailto:jperez@dcc.uchile.cl}{\nolinkurl{jperez@dcc.uchile.cl}}).
-La versión actual del documento ha sido modificada a partir de la original por Nicolás Lehmann, actual director del Comité Científico.\\
+La versión actual del documento ha sido modificada a partir de la original por Nicolás Lehmann, actual director del Comité Científico.
+
+{\new
+  Todas las secciones con modificaciones desde la versión anterior están marcados en color rojo.
+}
 
 Cualquier persona es bienvenida a realizar consultas y sugerencias sobre el
-Syllabus a la dirección de correo del mantenedor actual (\href{mailto:nlehmann@dcc.uchile.cl}{\nolinkurl{nlehmann@dcc.uchile.cl}}).
+Syllabus a la dirección de correo del mantenedor actual ({\new\href{mailto:nico.lehmannm@gmail.com}{\nolinkurl{nico.lehmannm@gmail.com}}}).
 
 \section{Introducción}\label{sec:intro}
 Este documento contiene información acerca de los conceptos mínimos (recomendados)
@@ -135,6 +141,18 @@ problema (referirse a apéndice \ref{problem-description}).
 
 \subsection{Grafos}
 \input{topics/graphs}
+
+{\new
+\subsection{Estrategias algorítmicas}
+\input{topics/strategies}
+}
+
+{\new
+\section{Matemáticas}
+\subsection{Aritmética y geometría}
+\input{topics/arith}
+}
+
 
 \newpage
 \appendix
