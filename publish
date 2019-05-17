@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
 
+if (( $# < 1 )); then
+    echo "Usage: $0 <tag> [github-token]"
+    exit 1
+fi
+
+if (( $# >= 2 )); then
+    TOKEN=$2
+elif [ -f .github-token ]; then
+    TOKEN=`cat .github-token`
+else
+    echo "You must provide a github token"
+    exit 1
+fi
+
 TAG=$1
 
 make force || exit 1
 
-publish-release --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf --template RELEASE.md
+publish-release --token $TOKEN --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf --template RELEASE.md
 

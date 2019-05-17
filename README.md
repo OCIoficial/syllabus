@@ -12,7 +12,8 @@ $ make
 ```bash
 $ npm i -g publish-release
 ```
-2. Correr script para publicar
+1. Generar un token personal para github (https://github.com/settings/tokens) y guardarlo en el archivo `.github-token` (este archivo está en el `.gitignore`).
+1. Correr script para publicar. El token de github es opcional, en caso de no ser provisto se interá leerlo del archivo `.github-token`. El `tag` debe ser el nombre del año antecedido por una `v`, por ejemplo, para el 2019 el tag debiese ser `v2019`.
 ```bash
-$ ./publish <tag>
+$ ./publish <tag> [github-token]
 ```
