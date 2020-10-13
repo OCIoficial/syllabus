@@ -17,7 +17,7 @@
 \newcommand{\cpp}{C\texttt{++}\xspace}
 \newcommand{\code}[1]{\texttt{#1}}
 
-\newcommand{\version}{Versión 2019}
+\newcommand{\version}{Versión 2020}
 \newcommand{\new}{\color{red}}
 
 \pagestyle{myheadings}
@@ -40,9 +40,12 @@
 \maketitle
 
 \section{Versión y estatus de este documento}
-Este documento es la versión oficial del Syllabus para la \textbf{OCI 2019}.
+Este documento es la versión oficial del Syllabus para la \textbf{OCI 2020}.
 El Syllabus es un documento oficial relacionado a la OCI.
 Cada año el Comité Científico de la OCI publicará una versión actualizada del Syllabus.
+{\new
+  Todas las secciones con modificaciones desde la versión anterior están marcados en color rojo.
+}
 
 \section{Autores e información de contacto}
 Una primera versión de este documento fue publicado para la OCI 2013 a cargo de
@@ -50,16 +53,32 @@ Cristian Ruz, Pontificia Universidad Católica de Chile (\href{mailto:cruz@ing.p
 Jorge Pérez, Universidad de Chile (\href{mailto:jperez@dcc.uchile.cl}{\nolinkurl{jperez@dcc.uchile.cl}}).
 La versión actual del documento ha sido modificada a partir de la original por Nicolás Lehmann, actual director del Comité Científico.
 
-{\new
-  Todas las secciones con modificaciones desde la versión anterior están marcados en color rojo.
-}
-
 Cualquier persona es bienvenida a realizar consultas y sugerencias sobre el
 Syllabus a la dirección de correo del mantenedor actual (\href{mailto:nico.lehmannm@gmail.com}{\nolinkurl{nico.lehmannm@gmail.com}}).
 
+{\new
+\section{Modalidad remota para la OCI 2020}
+Para su versión 2020, la OCI adoptará una modalidad completamente remota y constará de dos fases
+que se llevarán a cabo en dos fechas distintas.
+Para determinar los clasificados al equipo nacional se considerará el puntaje obtenido en ambas
+competencias.
+Específicamente, si un participante obtiene un puntaje $P_1$ en la fase 1 y un puntaje
+$P_2$ en la fase 2 el puntaje final $P$ del participante estará determinado por la siguiente fórmula:
+
+$$
+P = max(0.3\times P_1 + 0.7\times P_2, P_2)
+$$
+
+Con excepción de la forma en la que se determinará el puntaje final para cada participante, las fases
+1 y 2 corresponden en todos los otros aspectos a las fases \emph{regional} y \emph{final} en versiones anteriores de la
+OCI.
+Particularmente, el contenido a evaluar en cada fase se mantiene sin modificaciones.
+El resto de este documento ha sido modificado para reflejar el cambio en el nombre de las fases.
+}
+
 \section{Introducción}\label{sec:intro}
 Este documento contiene información acerca de los conceptos mínimos (recomendados)
-para la fase regional y nacional de la Olimpiada Chilena de Informática (OCI).
+para la {\new fase 1 y 2} de la Olimpiada Chilena de Informática (OCI).
 Los objetivos principales de este documento son dos:
 \begin{itemize}
   \item Servir de guía para las distintas delegaciones que se encuentren
@@ -87,18 +106,18 @@ De forma específica, el Syllabus divide los tópicos en tres categorías.
     Algunos tópicos en esta categoría no serán evaluados de forma explícita,
     sino más bien son una recomendación para ayudar a abordar los problemas (ej.
     Sec.~\ref{algorithm-analysis} - Análisis básico de algoritmos).
-  \item[\ultra{} Solo fase nacional]
+  \item[\ultra{} {\new Solo fase 2} ]
     \hspace{1em} \\
-    Algunos tópicos avanzados serán marcados como \textit{solo fase nacional}.
-    El Comité Científico garantizará que para todos los problemas en la fase
-    regional será posible obtener puntaje máximo sin conocimiento sobre los
+    Algunos tópicos avanzados serán marcados como \textit{\new solo fase 2}.
+    El Comité Científico garantizará que para todos los problemas en la
+    {\new fase 1} será posible obtener puntaje máximo sin conocimiento sobre los
     tópicos en esta categoría.
 \end{description}
 
-Cabe destacar que cada delegación regional es la responsable final de qué
-contenidos se entregan a los estudiantes de sus regiones, y puede decidir cubrir
-solo parte de los conceptos descritos en este documento o incluir conceptos
-adicionales.\\
+% Cabe destacar que cada delegación regional es la responsable final de qué
+% contenidos se entregan a los estudiantes de sus regiones, y puede decidir cubrir
+% solo parte de los conceptos descritos en este documento o incluir conceptos
+% adicionales.\\
 
 Es intención del Comité Científico aumentar gradualmente la complejidad de los
 tópicos cubiertos en este documento.
