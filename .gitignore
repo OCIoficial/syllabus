@@ -187,3 +187,6 @@ auto/
 
 # publish-release
 .github-token
+
+# javascript
+node_modules

@@ -11,9 +11,12 @@
     "olimpiada",
     "informatica"
   ],
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/ocioficial/syllabus/issues"
+  "author": "oci",
+  "homepage": "https://github.com/ocioficial/syllabus#readme",
+  "dependencies": {
+    "publish-release": "1.6.0"
   },
-  "homepage": "https://github.com/ocioficial/syllabus#readme"
+  "scripts": {
+    "publish": "./publish"
+  }
 }

@@ -18,5 +18,5 @@ TAG=$1
 
 make force || exit 1
 
-publish-release --token $TOKEN --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf --template RELEASE.md
+npx publish-release --token $TOKEN --owner ocioficial --repo syllabus --tag "$TAG" --name "$TAG" --assets oci-syllabus.pdf --template RELEASE.md
 
