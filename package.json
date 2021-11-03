@@ -14,7 +14,7 @@
   "author": "oci",
   "homepage": "https://github.com/ocioficial/syllabus#readme",
   "dependencies": {
-    "publish-release": "1.6.0"
+    "publish-release": "^1.6.1"
   },
   "scripts": {
     "publish": "./publish"
