@@ -45,8 +45,8 @@ Es posible que la solución a una subtarea no resuelva las subtareas anteriores.
 El siguiente ejemplo muestra las subtareas del problema ``Palabras'' de la OCI 2013.
 
 \begin{ejemplo}
-Se probarán varios casos con los siguientes puntajes y restricciones: 
-\begin{center} 
+Se probarán varios casos con los siguientes puntajes y restricciones:
+\begin{center}
 \begin{tabular}{|r|c|c|c} \hline
 &{\bf Puntaje} & {\bf Restricción} \\ \hline
 Subtarea 1 &30 puntos & $1\leq L<4$ \\
@@ -71,7 +71,7 @@ Lo primero que se puede observar en el problema ``Palabras'' es que la cantidad
 de palabras distintas de largo $L$ que se pueden hacer con $N$ letras es
 simplemente $N^L$.
 La segunda observación es que ese número podría ser muy grande dependiendo de
-los valores de $N$ y $L$ y que por lo tanto podría ser muy lento de calcular y 
+los valores de $N$ y $L$ y que por lo tanto podría ser muy lento de calcular y
 su valor podría no ser almacenable en un tipo de dato básico.
 Con esas observaciones se pueden utilizar las siguientes estrategias:
 
@@ -79,11 +79,11 @@ Con esas observaciones se pueden utilizar las siguientes estrategias:
 \item[Subtarea 1]: Dado que $N$ es siempre menor o igual
 a $10$ y $L$ es menor que $4$, sabemos que $N^L$ tendrá menos de 4 dígitos.
 Luego, en este caso bastaba con entregar como salida el valor $N^L$.
-Más aún, el cálculo de $N^L$ se podría hacer de forma muy simple: 
-dado que los valores posibles de $L$ son $1,2,3$, 
-se podría hacer una implementación en donde la salida fuera, 
+Más aún, el cálculo de $N^L$ se podría hacer de forma muy simple:
+dado que los valores posibles de $L$ son $1,2,3$,
+se podría hacer una implementación en donde la salida fuera,
 o bien $N$, o $N\times N$, o $N\times N\times N$, dependiendo del valor de $L$,
-lo que puede ser implementado incluso usando solo \texttt{if}/\texttt{else} y 
+lo que puede ser implementado incluso usando solo \texttt{if}/\texttt{else} y
 operaciones básicas entre enteros.
 
 \item[Subtarea 2]: En este caso el valor $N^L$ podría tener más de 4 dígitos, por lo que sería incorrecto simplemente entregar $N^L$ como salida.
@@ -91,7 +91,7 @@ Además, los valores de $L$ podrían ser muchos (entre $4$ y $11$),
 y en consecuencia, era necesario hacer una iteración para calcular $N^L$.
 Dado que el valor máximo para $N^L$ era $10^{11}$, este número podría ser
 almacenado en una variable y posteriormente obtener los últimos 4 dígitos del resultado.
-Obtener los dígitos se podía hacer dividiendo y restando, o usando el 
+Obtener los dígitos se podía hacer dividiendo y restando, o usando el
 operador \texttt{\%}.
 
 \item[Subtarea 3]: En este caso el valor de $N^L$ podría ser gigante (hasta $10^{10^8}$), por lo que sería imposible calcular primero el valor, ya que no es almacenable en ningún tipo de dato.
@@ -109,21 +109,20 @@ En ambos casos se debía tomar módulo $10000$ después de cada cálculo interme
 Esta solución llevaba a la mitad el tiempo necesario para calcular $N^L$.
 Otra solución general, que alcanzaba la mejor eficiencia, era usar
 \emph{exponenciación rápida}%
-\footnote{Este tópico no está incluido dentro de los tópicos para OCI 2013-2014}
 que es esencialmente la idea anterior pero dividiendo $L$ de manera recursiva.
 Esencialmente se calcula una función recursiva $\operatorname{expRap}(N,L)$ de manera tal que
 
-\[   
-\operatorname{expRap}(N,L) = 
+\[
+\operatorname{expRap}(N,L) =
      \begin{cases}
-       \operatorname{expRap}(N,{L}/{2}) \times 
+       \operatorname{expRap}(N,{L}/{2}) \times
 \operatorname{expRap}(N,{L}/{2}) &\quad\text{si $L$ es par}\\
        N\times \operatorname{expRap}(N,{(L-1)}) &\quad\text{si $L$ es impar}\\
      \end{cases}
 \]
 
 
-con caso base $\operatorname{expRap}(N,1)=N$ y de manera que en cada llamada intermedia 
+con caso base $\operatorname{expRap}(N,1)=N$ y de manera que en cada llamada intermedia
 se tome el módulo $10000$.
 
 \end{description}
@@ -134,7 +133,7 @@ las tareas anteriores.
 \subsection{Evaluación y feedback}
 
 Cuando un competidor envía una posible solución para ser evaluada durante la competencia,
-el sistema de evaluación ejecutará su programa con todos los casos de prueba disponibles 
+el sistema de evaluación ejecutará su programa con todos los casos de prueba disponibles
 y una vez obtenidos los resultados se le notificará al competidor del puntaje obtenido.
 Los casos de prueba están divididos en subtareas y para obtener el puntaje en
 una subtarea se debe tener correctos todos los casos de prueba de la subtarea.
@@ -143,7 +142,7 @@ que fueron resueltos correctamente y aquellos en los que hubo un error, pero el
 contenido de los casos de prueba siempre permanecerá oculto.
 El puntaje final de un participante corresponde a la suma de los puntajes máximos que haya sacado en cada problema.
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../oci-syllabus"
-%%% End: 
+%%% End:

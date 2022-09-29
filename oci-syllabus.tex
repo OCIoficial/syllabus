@@ -15,6 +15,7 @@
 \newtheorem{ejemplo}{Ejemplo}[section]
 \newcommand{\java}{Java\xspace}
 \newcommand{\cpp}{C\texttt{++}\xspace}
+\newcommand{\python}{Python\xspace}
 \newcommand{\code}[1]{\texttt{#1}}
 
 \newcommand{\version}{Versión \the\year}
@@ -40,7 +41,7 @@
 \maketitle
 
 \section{Versión y estatus de este documento}
-Este documento es la versión oficial del Syllabus para la \textbf{OCI 2021}.
+Este documento es la versión oficial del Syllabus para la \textbf{OCI 2022}.
 El Syllabus es un documento oficial relacionado a la OCI.
 Cada año el Comité Científico de la OCI publicará una versión actualizada del Syllabus.
 {\new
@@ -56,29 +57,9 @@ La versión actual del documento ha sido modificada a partir de la original por 
 Cualquier persona es bienvenida a realizar consultas y sugerencias sobre el
 Syllabus a la dirección de correo del mantenedor actual (\href{mailto:nico.lehmannm@gmail.com}{\nolinkurl{nico.lehmannm@gmail.com}}).
 
-{\new
-\section{Modalidad remota para la OCI \the\year}
-Para su versión \the\year, al igual que para su versión 2020, la OCI adoptará una modalidad completamente remota
-y constará de dos fases que se llevarán a cabo en dos fechas distintas.
-Para determinar los clasificados al equipo nacional se considerará el puntaje obtenido en ambas
-competencias.
-Específicamente, si un participante obtiene un puntaje $P_1$ en la fase 1 y un puntaje
-$P_2$ en la fase 2 el puntaje final $P$ del participante estará determinado por la siguiente fórmula:
-
-$$
-P = max(0.3\times P_1 + 0.7\times P_2, P_2)
-$$
-
-Con excepción de la forma en la que se determinará el puntaje final para cada participante, las fases
-1 y 2 corresponden en todos los otros aspectos a las fases \emph{regional} y \emph{final} en versiones anteriores de la
-OCI.
-Particularmente, el contenido a evaluar en cada fase se mantiene sin modificaciones.
-El resto de este documento ha sido modificado para reflejar el cambio en el nombre de las fases.
-}
-
 \section{Introducción}\label{sec:intro}
 Este documento contiene información acerca de los conceptos mínimos (recomendados)
-para la {\new fase 1 y 2} de la Olimpiada Chilena de Informática (OCI).
+para la {\new fase regional y nacional} de la Olimpiada Chilena de Informática (OCI).
 Los objetivos principales de este documento son dos:
 \begin{itemize}
   \item Servir de guía para las distintas delegaciones que se encuentren
@@ -106,11 +87,11 @@ De forma específica, el Syllabus divide los tópicos en tres categorías.
     Algunos tópicos en esta categoría no serán evaluados de forma explícita,
     sino más bien son una recomendación para ayudar a abordar los problemas (ej.
     Sec.~\ref{algorithm-analysis} - Análisis básico de algoritmos).
-  \item[\ultra{} {\new Solo fase 2} ]
+  \item[\ultra{} {\new Solo fase nacional} ]
     \hspace{1em} \\
-    Algunos tópicos avanzados serán marcados como \textit{\new solo fase 2}.
+    Algunos tópicos avanzados serán marcados como \textit{\new solo fase nacional}.
     El Comité Científico garantizará que para todos los problemas en la
-    {\new fase 1} será posible obtener puntaje máximo sin conocimiento sobre los
+    {\new fase regional} será posible obtener puntaje máximo sin conocimiento sobre los
     tópicos en esta categoría.
 \end{description}
 
@@ -174,6 +155,12 @@ problema (referirse a apéndice \ref{problem-description}).
 \section{Descripción de un problema de la OCI}
 \label{problem-description}
 \input{appendices/problem-description}
+
+{\new
+\section{Lenguajes de programación acceptados en la competencia}
+\label{lenguajes}
+\input{appendices/lenguajes}
+}
 
 \section{Operaciones de entrada y salida (IO)}
 \label{tech-IO}
