@@ -1,0 +1,59 @@
+name: Publish Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Year for the release (e.g. 2025)'
+        required: false
+        default: ''
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine release year
+        id: year
+        run: |
+          if [ -n "${{ github.event.inputs.year }}" ]; then
+            echo "value=${{ github.event.inputs.year }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(date +'%Y')" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: oci-syllabus.tex
+
+      - name: Create GitHub release
+        id: create_release
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const year = '${{ steps.year.outputs.value }}';
+            const { data: release } = await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: `v${year}`,
+              name: `v${year}`,
+              body: `Syllabus para la Olimpiada Chilena de Informática ${year}`,
+            });
+            return release.upload_url;
+          result-encoding: string
+
+      - name: Upload PDF to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.result }}
+          asset_path: oci-syllabus.pdf
+          asset_name: oci-syllabus.pdf
+          asset_content_type: application/pdf
