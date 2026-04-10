@@ -3,7 +3,7 @@ name: Compile LaTeX PDF
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -43,24 +43,29 @@ jobs:
             });
 
             const currentBody = pr.body || '';
-            const footerMarker = '<!-- PDF-BUILD-FOOTER -->';
+            const headerStart = '<!-- PDF-BUILD-HEADER -->';
+            const headerEnd = '<!-- /PDF-BUILD-HEADER -->';
             const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
-            // Remove existing footer if present
-            const bodyWithoutFooter = currentBody.includes(footerMarker)
-              ? currentBody.substring(0, currentBody.indexOf(footerMarker)).trimEnd()
-              : currentBody.trimEnd();
-
-            let footer;
-            if (process.env.COMPILE_OUTCOME === 'success') {
-              footer = `\n\n${footerMarker}\n---\n📄 **PDF Build**: ✅ Success — [Download PDF](${runUrl})`;
+            // Remove existing header if present
+            let bodyWithoutHeader;
+            if (currentBody.includes(headerStart) && currentBody.includes(headerEnd)) {
+              const afterHeader = currentBody.substring(currentBody.indexOf(headerEnd) + headerEnd.length);
+              bodyWithoutHeader = afterHeader.trimStart();
             } else {
-              footer = `\n\n${footerMarker}\n---\n📄 **PDF Build**: ❌ Build failed — [View logs](${runUrl})`;
+              bodyWithoutHeader = currentBody.trimStart();
+            }
+
+            let header;
+            if (process.env.COMPILE_OUTCOME === 'success') {
+              header = `${headerStart}\n📄 **PDF Build**: ✅ Success — [Download PDF](${runUrl})\n---\n${headerEnd}`;
+            } else {
+              header = `${headerStart}\n📄 **PDF Build**: ❌ Build failed — [View logs](${runUrl})\n---\n${headerEnd}`;
             }
 
             await github.rest.pulls.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.payload.pull_request.number,
-              body: bodyWithoutFooter + footer,
+              body: header + '\n\n' + bodyWithoutHeader,
             });
