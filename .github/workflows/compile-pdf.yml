@@ -1,0 +1,66 @@
+name: Compile LaTeX PDF
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        id: compile
+        uses: xu-cheng/latex-action@v4
+        continue-on-error: true
+        with:
+          root_file: oci-syllabus.tex
+
+      - name: Upload PDF artifact
+        if: steps.compile.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: oci-syllabus-pdf
+          path: oci-syllabus.pdf
+
+      - name: Update PR description
+        uses: actions/github-script@v7
+        env:
+          COMPILE_OUTCOME: ${{ steps.compile.outcome }}
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+
+            const currentBody = pr.body || '';
+            const footerMarker = '<!-- PDF-BUILD-FOOTER -->';
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            // Remove existing footer if present
+            const bodyWithoutFooter = currentBody.includes(footerMarker)
+              ? currentBody.substring(0, currentBody.indexOf(footerMarker)).trimEnd()
+              : currentBody.trimEnd();
+
+            let footer;
+            if (process.env.COMPILE_OUTCOME === 'success') {
+              footer = `\n\n${footerMarker}\n---\n📄 **PDF Build**: ✅ Success — [Download PDF](${runUrl})`;
+            } else {
+              footer = `\n\n${footerMarker}\n---\n📄 **PDF Build**: ❌ Build failed — [View logs](${runUrl})`;
+            }
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              body: bodyWithoutFooter + footer,
+            });
