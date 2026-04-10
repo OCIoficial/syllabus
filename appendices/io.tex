@@ -26,7 +26,7 @@ Un verificador es un programa que lee la respuesta producida por una solución y
 verifica si es correcta.\\
 
 La entrada y salida deben ser siempre por la salida estándar.
-A continuación se detallan las formas recomendadas de hacerlo en \java y \cpp.
+A continuación se detallan las formas recomendadas de hacerlo en \java{\new,} \cpp {\new y \python}.
 \paragraph{\cpp.} Existen dos formas de leer y escribir por la entrada y salida
   estándar en \cpp.
   La primera es usando las funciones \code{printf} y \code{scanf} del encabezado
@@ -52,6 +52,17 @@ A continuación se detallan las formas recomendadas de hacerlo en \java y \cpp.
   de la clase \code{BufferedReader}.
   Para complementar su uso es recomendable utilizar la clase
   \code{StringTokenizer} y funciones como \code{Integer.parseInt}.
+
+\paragraph{\python.} {\new
+  La forma recomendada en \python para leer de la entrada estándar es
+  utilizando la función \code{input()}.
+  Para escribir a la salida estándar se debe utilizar la función \code{print()}.
+  
+  Es importante tener en cuenta que \code{input()} lee líneas completas como
+  cadenas de texto, por lo que puede ser necesario utilizar métodos como
+  \code{split()} para separar múltiples valores y funciones como \code{int()}
+  o \code{float()} para convertir los valores al tipo de dato apropiado.
+}
 
 %%% Local Variables: 
 %%% mode: latex
